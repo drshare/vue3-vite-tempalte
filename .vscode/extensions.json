@@ -1,5 +1,14 @@
 {
     "recommendations": [
-        "Vue.volar"
+        "vue.volar",
+        "EditorConfig.EditorConfig",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "antfu.vite",
+        "lokalise.i18n-ally",
+        "formulahendry.auto-close-tag",
+        "formulahendry.auto-rename-tag",
+        "donjayamanne.githistory",
+        "eamodio.gitlens",
     ],
 }
