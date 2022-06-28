@@ -1,11 +1,16 @@
 # vue3-vite-tempalte
+
 vue3 + vite 项目模板
+
 ## 项目发件过程
+
 ### 1.初始化项目
+
 ```shell
 # 创建基础模板
 pnpm create vite vue3-demo -- --template vue-ts
 ```
+
 ```json
 # 配置vscode 保存自定格式化代码
 {
@@ -18,6 +23,7 @@ pnpm create vite vue3-demo -- --template vue-ts
 ```
 
 ### 2. 删除多余文件 并且 node 支持 TS
+
 ```shell
 # 安装ts-node
 pnpm i @types/node --save-dev
@@ -32,6 +38,7 @@ pnpm i eslint eslint-plugin-vue @typescript-eslint/parser eslint-import-resolver
 # eslint 初始化
 ./node_modules/.bin/eslint --init
 ```
+
 √ How would you like to use ESLint? · style
 √ What type of modules does your project use? · esm
 √ Which framework does your project use? · vue

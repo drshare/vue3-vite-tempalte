@@ -46,13 +46,17 @@ module.exports = {
                 ignores: ['login', 'index'],
             },
         ],
-        'vue/html-indent': ['error', 4, {
-            attribute: 3,
-            baseIndent: 1,
-            closeBracket: 0,
-            alignAttributesVertically: true,
-            ignores: [],
-        }],
+        'vue/html-indent': [
+            'error',
+            4,
+            {
+                attribute: 3,
+                baseIndent: 1,
+                closeBracket: 0,
+                alignAttributesVertically: true,
+                ignores: [],
+            },
+        ],
     },
     // 别名设置
     settings: {
