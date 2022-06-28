@@ -2,7 +2,6 @@
  * @name VisualizerPlugin
  * @description 打包完成后文件图
  */
-import { Plugin } from 'vite';
 import { visualizer } from 'rollup-plugin-visualizer';
 
 export default visualizer({

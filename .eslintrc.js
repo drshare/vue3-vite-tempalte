@@ -21,6 +21,7 @@ module.exports = {
     plugins: ['vue', '@typescript-eslint'],
     rules: {
         indent: [2, 4],
+        'max-len': ['error', { code: 120 }],
         'no-undef': [0],
         'import/no-unresolved': [2, { ignore: ['virtual:generated-pages', 'virtual:windi.css'] }],
         'import/extensions': [0],

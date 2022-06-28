@@ -1,3 +1,3 @@
 <template>
-    <div>index</div>
+    <router-view />
 </template>
