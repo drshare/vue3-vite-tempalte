@@ -8,5 +8,6 @@ import 'element-plus/es/components/message/style/css';
 const app = createApp(App);
 
 app.use(router);
+app.use(store);
 
 app.mount('#app');
