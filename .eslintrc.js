@@ -1,4 +1,5 @@
 module.exports = {
+    root: true,
     // 语言环境支持
     env: {
         browser: true,

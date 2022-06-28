@@ -3,7 +3,8 @@
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
+        "source.fixAll.eslint": true,
+        "source.fixAll.stylelint": true
     },
     "eslint.validate": [
         "javascript",
@@ -23,9 +24,23 @@
         "vue",
         "markdown"
     ],
+    "stylelint.validate": [
+        "css",
+        "less",
+        "postcss",
+        "scss",
+        "vue",
+        "sass"
+    ],
+    "eslint.alwaysShowStatus": true,
     "vite.devCommand": "pnpm run dev -- --",
     "i18n-ally.localesPaths": "packages/locale/lang",
-    "i18n-ally.enabledParsers": ["ts"],
-    "i18n-ally.enabledFrameworks": ["vue", "vue-sfc"],
+    "i18n-ally.enabledParsers": [
+        "ts"
+    ],
+    "i18n-ally.enabledFrameworks": [
+        "vue",
+        "vue-sfc"
+    ],
     "i18n-ally.keystyle": "nested"
 }
