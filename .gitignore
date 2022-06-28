@@ -23,3 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 pnpm-lock.yaml
+
+types/components.d.ts
+types/auto-imports.d.ts

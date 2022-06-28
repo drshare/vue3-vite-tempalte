@@ -408,7 +408,7 @@ module.exports = {
 
 ```
 
-### 8. vite 插件安装 
+### 8. vite 插件安装
 
 ```shell
 # 安装依赖
@@ -437,7 +437,7 @@ pnpm i vite-plugin-compression vite-plugin-progress vite-plugin-restart vite-plu
 # 安装依赖
 pnpm i pinia vue-router axios element-plus  @vueuse/core --save
 
-#element plus 自动导入 
+#element plus 自动导入
 pnpm i unplugin-vue-components unplugin-auto-import --save-dev
 ```
 
