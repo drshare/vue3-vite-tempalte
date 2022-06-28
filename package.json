@@ -6,19 +6,28 @@
         "dev": "vite",
         "build": "vue-tsc --noEmit && vite build",
         "preview": "vite preview",
+        "lint": "pnpm run lint:code && pnpm run lint:style",
         "lint:code": "eslint --ext .js,.vue --ignore-path .eslintignore --fix src",
         "lint:style": "stylelint --fix  src/**/*.{css,less,scss,vue}",
         "prettier:comment": "自动格式化当前目录下的所有文件",
-        "prettier": "prettier --write ."
+        "prettier": "prettier --write .",
+        "commit:comment": "引导设置规范化的提交信息",
+        "commit": "git-cz"
     },
     "dependencies": {
         "vue": "^3.2.25"
     },
     "devDependencies": {
+        "@commitlint/cli": "^17.0.3",
+        "@commitlint/config-conventional": "^17.0.3",
         "@types/node": "^18.0.0",
         "@typescript-eslint/eslint-plugin": "^5.30.0",
         "@typescript-eslint/parser": "^5.30.0",
         "@vitejs/plugin-vue": "^2.3.3",
+        "commitizen": "^4.2.4",
+        "commitlint-config-cz": "^0.13.3",
+        "cz-conventional-changelog": "^3.3.0",
+        "cz-customizable": "^6.6.0",
         "eslint": "^7.32.0 || ^8.2.0",
         "eslint-config-airbnb-base": "^15.0.0",
         "eslint-config-prettier": "^8.5.0",
@@ -26,6 +35,8 @@
         "eslint-plugin-import": "^2.25.2",
         "eslint-plugin-prettier": "^4.1.0",
         "eslint-plugin-vue": "^9.1.1",
+        "husky": "^8.0.1",
+        "lint-staged": "^13.0.3",
         "postcss": "^8.4.14",
         "postcss-html": "^1.4.1",
         "postcss-less": "^6.0.0",
@@ -42,5 +53,20 @@
         "typescript": "^4.5.4",
         "vite": "^2.9.9",
         "vue-tsc": "^0.34.7"
+    },
+    "config": {
+        "commitizen": {
+            "path": "node_modules/cz-customizable"
+        }
+    },
+    "lint-staged": {
+        "{*.{js,ts,vue,tsx,jsx}}": [
+            "pnpm run lint",
+            "pnpm run prettier"
+        ]
+    },
+    "engines": {
+        "node": ">=16.15.1",
+        "pnpm": ">=7.2.1"
     }
 }
