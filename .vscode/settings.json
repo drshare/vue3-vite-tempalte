@@ -13,8 +13,6 @@
         "html",
         "vue",
         "markdown",
-        "json",
-        "jsonc"
     ],
     "eslint.probe": [
         "javascript",
@@ -24,8 +22,6 @@
         "html",
         "vue",
         "markdown",
-        "json",
-        "jsonc"
     ],
     "vite.devCommand": "pnpm run dev -- --",
     "i18n-ally.localesPaths": "packages/locale/lang",
