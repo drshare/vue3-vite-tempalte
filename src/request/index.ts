@@ -2,27 +2,36 @@ import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import showMessage from './status';
 import { IResponse } from './type';
 import { getToken } from './auth';
-// 如果请求话费了超过 `timeout` 的时间，请求将被中断
-axios.defaults.timeout = 5000;
-// 表示跨域请求时是否需要使用凭证
-axios.defaults.withCredentials = false;
-// axios.defaults.headers.common['token'] =  AUTH_TOKEN
-// 允许跨域
-axios.defaults.headers.post['Access-Control-Allow-Origin-Type'] = '*';
 
 const axiosInstance: AxiosInstance = axios.create({
-    baseURL: `${import.meta.env.BASE_URL}`,
-    // transformRequest: [
-    //   function (data) {
-    //     //由于使用的 form-data传数据所以要格式化
-    //     delete data.Authorization
-    //     data = qs.stringify(data)
-    //     return data
-    //   },
-    // ],
+    baseURL: `${import.meta.env.VITE_BASE_URL}`,
+    withCredentials: true, // 表示跨域请求时是否需要使用凭证
+    timeout: 3000, // 如果请求话费了超过 `timeout` 的时间，请求将被中断
+    timeoutErrorMessage: '超时，请稍后再尝试',
+    transformRequest: [
+        (data) => JSON.stringify(data),
+    ],
+    headers: {
+        'Content-Type': 'application/json;charset=UTF-8',
+    },
 });
 
-// axios实例拦截响应
+// 请求拦截器
+axiosInstance.interceptors.request.use(
+    (config: AxiosRequestConfig) => {
+        const token = getToken();
+        if (token) {
+            // config.headers.Authorization = `${TokenPrefix}${token}`
+        }
+        return config;
+    },
+    (error) => {
+        error.msg = '请求异常，请联系管理员！';
+        return Promise.reject(error);
+    },
+);
+
+// 响应拦截器
 axiosInstance.interceptors.response.use(
     (response: AxiosResponse) => {
     // if (response.headers.authorization) {
@@ -48,18 +57,6 @@ axiosInstance.interceptors.response.use(
         showMessage('网络连接异常,请稍后再试!');
         return false;
     },
-);
-
-// axios实例拦截请求
-axiosInstance.interceptors.request.use(
-    (config: AxiosRequestConfig) => {
-        const token = getToken();
-        if (token) {
-            // config.headers.Authorization = `${TokenPrefix}${token}`
-        }
-        return config;
-    },
-    (error: any) => Promise.reject(error),
 );
 
 const request = <T = any>(config: AxiosRequestConfig): Promise<T> => {
@@ -105,11 +102,3 @@ export function post<T = any>(config: AxiosRequestConfig): Promise<T> {
 
 export default request;
 export type { AxiosInstance, AxiosResponse };
-/**
- * @description: 用户登录案例
- * @params {ILogin} params
- * @return {Promise}
- */
-// export const login = (params: ILogin): Promise<IResponse> => {
-//     return axiosInstance.post('user/login', params).then(res => res.data);
-// };

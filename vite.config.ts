@@ -6,6 +6,7 @@ import registerVitePlugins from './plugins';
 export default ({ command }: ConfigEnv): UserConfig => {
     const isBuild = command === 'build';
     return {
+        envDir: './env',
         resolve: {
             alias: {
                 '@': path.resolve(__dirname, './src'),
@@ -24,6 +25,14 @@ export default ({ command }: ConfigEnv): UserConfig => {
             host: '0.0.0.0',
             port: 9527,
             open: true,
+            proxy: {
+                // 选项写法
+                '/api': {
+                    target: 'http://127.0.0.1:7001',
+                    changeOrigin: true,
+                    rewrite: (path) => path.replace(/^\/api/, ''),
+                },
+            },
         },
         // build
         build: {

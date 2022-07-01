@@ -1,7 +1,7 @@
 <template>
     <el-button
-                type="primary"
-                @click="alerts"
+        type="primary"
+        @click="alerts"
     >
         弹窗
     </el-button>
